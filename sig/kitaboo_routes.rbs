@@ -1,0 +1,9 @@
+class KitabooRoutes
+  @kitaboo_base_url: string
+
+  def authentication_route: -> String
+
+  def notification_route: -> String
+
+  def orders_route: -> String
+end
