@@ -26,6 +26,14 @@ module KitabooService
     def set_configuration: -> nil
   end
 
+  def create_order: -> KitabooResponse
+
+  def is_production_environment: -> bool
+
+  def remove_kitaboo_user_by_email: -> KitabooResponse
+
+  def remove_order: -> KitabooResponse
+
   private
 
   def authenticate_production_environment: -> KitabooResponse
