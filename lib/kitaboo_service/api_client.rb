@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module KitabooService
   # Implement all Kitaboo API calls
   class ApiClient
@@ -10,11 +12,11 @@ module KitabooService
       @kitaboo_production_token = KitabooService.configuration.kitaboo_production_token
       # The authentication method is different according to the Kitaboo environment to use, this why
       # we have 2 different methods to authenticate and get the token to be used on following requests
-      if @is_kitaboo_production
-        @kitaboo_auth_token = self.authenticate_production_environment.body[1]['access_token']
-      else
-        @kitaboo_auth_token = self.authenticate_test_environment.body[1]['access_token']
-      end
+      @kitaboo_auth_token = if @is_kitaboo_production
+                              authenticate_production_environment.body[1]["access_token"]
+                            else
+                              authenticate_test_environment.body[1]["access_token"]
+                            end
     end
   end
 
@@ -23,8 +25,8 @@ module KitabooService
     https = Net::HTTP.new(url.host, url.port)
     https.use_ssl = true
     request = Net::HTTP::Post.new(url)
-    request['Authorization'] = "Bearer #{@kitaboo_auth_token}"
-    request['Content-Type'] = 'application/x-www-form-urlencoded'
+    request["Authorization"] = "Bearer #{@kitaboo_auth_token}"
+    request["Content-Type"] = "application/x-www-form-urlencoded"
     request.body = "userID=#{email}&userDeleted=1"
     KitabooResponse.new(https.request(request))
   end
