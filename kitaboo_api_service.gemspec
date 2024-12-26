@@ -9,12 +9,12 @@ Gem::Specification.new do |spec|
   spec.email = [""]
 
   spec.summary = "Implement Kitaboo API method access"
-  spec.description = "TODO: Write a longer description or delete this line."
+  spec.description = "Implement Kitaboo API method access"
   spec.homepage = "https://github.com/jpedroantunes/kitaboo-api-service"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.0.0"
 
-  spec.metadata["allowed_push_host"] = "https://github.com/jpedroantunes/kitaboo-api-service"
+  spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/jpedroantunes/kitaboo-api-service"
