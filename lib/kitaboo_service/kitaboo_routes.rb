@@ -18,6 +18,6 @@ class KitabooRoutes
   end
 
   def orders_route
-    "#{@kitaboo_base_url}DistributionServices/ext/api/v3/order"
+    "#{@kitaboo_base_url}/DistributionServices/ext/api/v3/order"
   end
 end
