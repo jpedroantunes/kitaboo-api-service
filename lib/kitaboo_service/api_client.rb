@@ -65,7 +65,7 @@ module KitabooService
         request["Content-Type"] = "application/x-www-form-urlencoded"
         request.body = "grant_type=client_credentials&client_id=#{@kitaboo_client_id}&client_secret=#{@kitaboo_client_secret}"
       end
-      KitabooResponse.new(https.request(request)).body[1]["access_token"]
+      KitabooResponse.new(https.request(request)).body["access_token"]
     end
   end
 end
