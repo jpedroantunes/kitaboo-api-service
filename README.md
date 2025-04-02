@@ -23,3 +23,11 @@ The gem is available as open source under the terms of the [MIT License](https:/
 ## Code of Conduct
 
 Everyone interacting in the SophiaApiService project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/sophia_api_service/blob/master/CODE_OF_CONDUCT.md).
+
+# Generating a new GEM
+
+1 - Define new version number on `version.rb` file;
+
+2 - Use the command `gem build` to create the gem package;
+
+3 - Publish the gem on rubygem through the command `gem push kitaboo_service-[VERSION].gem`

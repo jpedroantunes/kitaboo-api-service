@@ -36,14 +36,14 @@ module KitabooService
       KitabooResponse.new(https.request(request))
     end
 
-    def create_order(order_number, course_code, student_email, password)
+    def create_order(order_number, course_code, student_email, password, device_limit)
       url = URI(@kitaboo_routes.orders_route)
       https = Net::HTTP.new(url.host, url.port)
       https.use_ssl = true
       request = Net::HTTP::Post.new(url.path)
       request["Authorization"] = "Bearer #{@kitaboo_auth_token}"
       request["Content-Type"] = "application/x-www-form-urlencoded"
-      request.body = "orderNo=#{order_number}&bookID=#{course_code}&userID=#{student_email}&firstName=#{student_email}&lastName=#{student_email}&userName=#{student_email}&password=#{password}&email=#{student_email}"
+      request.body = "orderNo=#{order_number}&bookID=#{course_code}&userID=#{student_email}&firstName=#{student_email}&lastName=#{student_email}&userName=#{student_email}&password=#{password}&email=#{student_email}&deviceLimit=#{device_limit}"
       KitabooResponse.new(https.request(request))
     end
 
